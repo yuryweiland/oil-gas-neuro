@@ -1,18 +1,24 @@
 var R = require('ramda');
 void 0; //to not bloat the output
 var random = require('seed-random')(1337);
+
+// Исходные данные для разных НПС (вместо 2 параметров - поставим 4, - и один выходной параметр)
 var data = [
     {input: [0, 0], output: 0},
     {input: [1, 0], output: 1},
     {input: [0, 1], output: 1},
     {input: [1, 1], output: 0},
 ];
+
 var activation_sigmoid = x => 1 / (1 + Math.exp(-x));
+
+// Функция расчёта веса (весов) связи
 var derivative_sigmoid = x => {
     const fx = activation_sigmoid(x);
     return fx * (1 - fx);
 };
 
+// Изначально берём любые рандомные веса связей (это до обучения нейросети)
 var weights = {
     i1_h1: random(),
     i2_h1: random(),
@@ -25,6 +31,7 @@ var weights = {
     bias_o1: random(),
 };
 
+// перемемножаем веса связей с учетом смещения (bias)
 function nn(i1, i2) {
     var h1_input =
         weights.i1_h1 * i1 +
@@ -38,7 +45,6 @@ function nn(i1, i2) {
         weights.bias_h2;
     var h2 = activation_sigmoid(h2_input);
 
-
     var o1_input =
         weights.h1_o1 * h1 +
         weights.h2_o1 * h2 +
@@ -49,6 +55,7 @@ function nn(i1, i2) {
     return o1;
 }
 
+// Подсчет значений
 var calculateResults = () =>
     R.mean(data.map(({input: [i1, i2], output: y}) => Math.pow(y - nn(i1, i2), 2)));
 
@@ -58,6 +65,7 @@ var outputResults = () =>
 
 outputResults()
 
+// Подсчет разницы весов
 var train = () => {
     const weight_deltas = {
         i1_h1: 0,
@@ -84,7 +92,6 @@ var train = () => {
             weights.i2_h2 * i2 +
             weights.bias_h2;
         var h2 = activation_sigmoid(h2_input);
-
 
         var o1_input =
             weights.h1_o1 * h1 +
