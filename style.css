@@ -1,5 +1,8 @@
+html {
+}
+
 body {
-    background: #03a9f4;
+    background: url(images/background.jpg) no-repeat 50% 0;
     font: 14px Arial;
 }
 
@@ -31,24 +34,31 @@ div.oil-station-block {
     height: 50%;
 }
 
-div.oil-station-block:first-of-type {
-    border-bottom: 2px #ccc dashed;
-}
-
 div.oil-station-parameters {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 div.oil-station-parameters div {
+    display: flex;
     text-align: left;
+    align-items: center;
+}
+
+div.oil-station-parameters div label {
+    width: 375px;
 }
 
 div.oil-station-parameters div input {
-    width: 120px;
+    width: 200px;
     border: 2px #03a9f4 solid;
     font-size: 16px;
     height: 28px;
     margin: 5px 15px 0 0;
     text-align: right;
+}
+
+div.result {
+    background: white;
+    color: black;
 }

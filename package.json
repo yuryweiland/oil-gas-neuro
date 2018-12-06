@@ -1,0 +1,13 @@
+{
+    "name": "@runkit/oil-gas-neuro",
+    "version": "0.0.0-master",
+    "main": "./lib/oil-gas-neuro",
+    "dependencies": {
+        "ramda": "0.26.0",
+        "seed-random": "2.2.0",
+        "webpack": "^4.27.1"
+    },
+    "scripts": {
+        "install": "node scripts/install.js"
+    }
+}

@@ -8,82 +8,64 @@
 <body>
 <div class="centered">
 
-    <h1>Система прогнозирования объёма производительности НПС<br />
-        в зависимости от показателей насосов на станции</h1>
-    <p>Основано на реальных данных с НПС </p>
+    <h1>Экспертная система по прогнозированию производительности<br />
+        участка МНП на основе исторических данных<br />
+        и характеристик насосов на НПС</h1>
+
+    <p>Система обучена на данных с участка МНП &laquo;Уса &ndash; Сыня&raquo;</p>
 
     <div class="oil-stations-info">
 
         <div class="oil-station-block">
-            <h2>Показатели НПС №1:</h2>
+            <h2>Введите рабочие характеристики участка нефтепровода:</h2>
             <div class="oil-station-parameters">
                 <div>
-                    <label>
-                        Параметр 1:
-                        <input type="number" value="123"/>
-                    </label>
+                    <label>Количество включенных насосов на первой НПС (шт):</label>
+                    <input type="number" min="1" value="" placeholder="Например, 1" />
                 </div>
 
                 <div>
-                    <label>
-                        Параметр 2:
-                        <input type="number" value="123"/>
-                    </label>
+                    <label>Количество включенных насосов на второй НПС (шт):</label>
+                    <input type="number" min="0" value="" placeholder="Например, 0" />
                 </div>
 
                 <div>
-                    <label>
-                        Параметр 3:
-                        <input type="number" value="123"/>
-                    </label>
+                    <label>Подача Q (м3/ч):</label>
+                    <input type="number" min="0" value="" placeholder="Например, 2500" />
                 </div>
 
                 <div>
-                    <label>
-                        Параметр 4:
-                        <input type="number" value="123"/>
-                    </label>
+                    <label>Напор (м/100):</label>
+                    <input type="number" min="0" value=""  placeholder="Например, 230" />
+                </div>
+
+                <div>
+                    <label>КПД (%):</label>
+                    <input type="number" min="50" placeholder="Например, 85" />
+                </div>
+
+                <div>
+                    <label>n (об/мин):</label>
+                    <input type="number" min="1000" placeholder="Например, 3000" />
+                </div>
+
+                <div>
+                    <label>Диаметр трубопровода, D2 (мм):</label>
+                    <input type="number" min="300" value="" placeholder="Например, 430"  />
                 </div>
 
             </div>
-            <h2>Прогнозируемая производительность НПС №1 (Q) = 2456 м<sup>3</sup>/час</h2>
         </div>
 
-        <div class="oil-station-block">
-            <h2>Показатели НПС №2:</h2>
-            <div class="oil-station-parameters">
-                <div>
-                    <label>
-                        Параметр 1:
-                        <input type="number" value="123"/>
-                    </label>
-                </div>
-
-                <div>
-                    <label>
-                        Параметр 2:
-                        <input type="number" value="123"/>
-                    </label>
-                </div>
-
-                <div>
-                    <label>
-                        Параметр 3:
-                        <input type="number" value="123"/>
-                    </label>
-                </div>
-
-                <div>
-                    <label>
-                        Параметр 4:
-                        <input type="number" value="123"/>
-                    </label>
-                </div>
-
-            </div>
-            <h2>Прогнозируемая производительность НПС №1 (Q) = 2676 м<sup>3</sup>/час</h2>
-        </div>
     </div>
+
+    <div class="result">
+        <h2>Прогнозируемая производительность участка: 2456 м<sup>3</sup>/час</h2>
+        <h3>Определено с вероятностью 87%</h3>
+    </div>
+
 </div>
+
+<script src="index.js"></script>
 </body>
 </html>
