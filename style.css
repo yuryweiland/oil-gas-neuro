@@ -30,6 +30,10 @@ div.oil-stations-info {
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
 }
 
+h2 {
+    margin-top: 0;
+}
+
 div.oil-station-block {
     height: 50%;
 }
@@ -59,6 +63,13 @@ div.oil-station-parameters div input {
 }
 
 div.result {
+    margin-top: 10px;
     background: white;
     color: black;
+    padding: 0 20px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+}
+
+div.result h2 {
+    margin-top: 10px;
 }
