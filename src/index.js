@@ -242,3 +242,59 @@ var applyTrainUpdate = (weight_deltas = train()) =>
 R.times(() => applyTrainUpdate(), 1000);
 outputResults();
 calculateResults();
+
+/**
+ * Код, необходимый для коррректной работы веб-интерфейса
+ */
+
+// Кнопка "Расчитать"
+var calculateButton = document.querySelector('.calculate-button');
+
+// Кнопка "Новый расчёт"
+var calculateNewButton = document.querySelector('.calculate-new-button');
+
+// Блок результатов расчёта
+var resultBlock = document.querySelector('.result');
+
+// Форма с параметрами
+var parametersForm = document.querySelector('.oil-station-parameters');
+// console.log('parametersForm', parametersForm);
+
+// Массив input-полея формы с параметрами
+var parametersFormInputs = parametersForm.querySelectorAll('input');
+
+// Обновляем статус кнопки "Расчитать" в зависимости от значений формы
+[].forEach.call(parametersFormInputs, function(e){e.addEventListener('change', disableCalculateButton)});
+
+// Показываем блок с результатами расчёта по клику
+calculateButton.addEventListener('click', function() {
+    resultBlock.classList.remove('hidden');
+    calculateButton.classList.add('hidden');
+    calculateNewButton.classList.remove('hidden');
+    disableParametersForm(true);
+});
+
+// Обработчик клика по кнопке "Новый расчёт"
+calculateNewButton.addEventListener('click', function() {
+    calculateButton.classList.remove('hidden');
+    calculateNewButton.classList.add('hidden');
+    resultBlock.classList.add('hidden');
+    disableParametersForm(false);
+});
+
+// Деактивируем кнопку расчёта, если хотя бы одно поле не заполнено
+function disableCalculateButton() {
+    calculateButton.disabled = Array.from(parametersFormInputs)
+        .filter((input) => input.type === 'number')
+        .some((input) => !input.value || input.value === 0 || input.value === "0");
+}
+
+// (Де-)активация всех полей формы (по параметру)
+function disableParametersForm(bool) {
+    Array.from(parametersFormInputs)
+        .forEach((input) => {
+          input.disabled = bool;
+        });
+}
+
+disableCalculateButton();

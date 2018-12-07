@@ -19,34 +19,57 @@
         <div class="oil-station-block">
             <h2>Введите рабочие характеристики участка нефтепровода:</h2>
             <div class="oil-station-parameters">
-                <div>
+                <div class="radio-inputs-container">
                     <label>Количество включенных насосов на первой НПС (шт):</label>
-                    <input type="number" min="1" value="" placeholder="Например, 1" />
+
+                    <div>
+                        <input name="first_nps_on" type="radio" value="1" checked /> 1
+                    </div>
+                    <div>
+                        <input name="first_nps_on" type="radio" value="2" /> 2
+                    </div>
+                    <div>
+                        <input name="first_nps_on" type="radio" value="3" /> 3
+                    </div>
+
                 </div>
 
-                <div>
+                <div class="radio-inputs-container">
                     <label>Количество включенных насосов на второй НПС (шт):</label>
-                    <input type="number" min="0" value="" placeholder="Например, 0" />
+
+                    <div>
+                        <input name="second_nps_on" type="radio" value="1" /> 1
+                    </div>
+                    <div>
+                        <input name="second_nps_on" type="radio" value="2" /> 2
+                    </div>
+                    <div>
+                        <input name="second_nps_on" type="radio" value="3" /> 3
+                    </div>
+                    <div>
+                        <input name="second_nps_on" type="radio" value="4" /> 4
+                    </div>
+
                 </div>
 
                 <div>
                     <label>Подача Q (м3/ч):</label>
-                    <input type="number" min="0" value="" placeholder="Например, 2500" />
+                    <input type="number" min="2000" value="" placeholder="Например, 2500" />
                 </div>
 
                 <div>
                     <label>Напор (м/100):</label>
-                    <input type="number" min="0" value=""  placeholder="Например, 230" />
+                    <input type="number" min="200" value=""  placeholder="Например, 230" />
                 </div>
 
                 <div>
                     <label>КПД (%):</label>
-                    <input type="number" min="50" placeholder="Например, 85" />
+                    <input type="number" min="70" max="100" placeholder="Например, 85" />
                 </div>
 
                 <div>
                     <label>n (об/мин):</label>
-                    <input type="number" min="1000" placeholder="Например, 3000" />
+                    <input type="number" min="2000" placeholder="Например, 3000" />
                 </div>
 
                 <div>
@@ -57,9 +80,20 @@
             </div>
         </div>
 
+        <div class="calculate-button-block">
+            <div class="button-container">
+                <button class="calculate-button">
+                    Расчитать
+                </button>
+                <button class="calculate-new-button hidden">
+                    Новый расчёт
+                </button>
+            </div>
+        </div>
+
     </div>
 
-    <div class="result">
+    <div class="result hidden">
         <h2>Прогнозируемая производительность участка: 2456 м<sup>3</sup>/час</h2>
         <h3>Определено с вероятностью 87%</h3>
     </div>
