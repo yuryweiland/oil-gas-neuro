@@ -14,9 +14,20 @@
 
     <p>Система обучена на данных с участка МНП &laquo;Уса &ndash; Сыня&raquo;</p>
 
-    <div class="oil-stations-info">
+    <div class="oil-stations-select">
+        Укажите количество НПС на участке нефтепровода:
 
-        <div class="oil-station-block">
+        <select name="nameee" class="oil-stations-count">
+            <option value="0">НПС отсутствуют</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+    </div>
+
+    <div class="oil-stations-info">
+        <div class="oil-station-block hidden">
             <h2>Введите рабочие характеристики участка нефтепровода:</h2>
             <div class="oil-station-parameters">
                 <div class="radio-inputs-container">
@@ -82,7 +93,7 @@
             </div>
         </div>
 
-        <div class="calculate-button-block">
+        <div class="calculate-button-block hidden">
             <div class="button-container">
                 <button class="calculate-button">
                     Расчитать

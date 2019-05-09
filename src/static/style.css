@@ -102,10 +102,18 @@ div.result {
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
 }
 
+div.oil-stations-select {
+    margin-bottom: 10px;
+    background: white;
+    color: black;
+    padding: 20px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+}
+
 div.result h2 {
     margin-top: 10px;
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
