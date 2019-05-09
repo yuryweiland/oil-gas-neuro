@@ -145,8 +145,10 @@ var calculateResults = () =>
     R.mean(data.map(({input: [i1, i2, i3, i4, i5, i6, i7], output: y}) => Math.pow(y - nn(i1, i2, i3, i4, i5, i6, i7), 2)));
 
 var outputResults = () =>
-    data.forEach(({input: [i1, i2, i3, i4, i5, i6, i7], output: y}) =>
-        console.log(`${i1}, ${i2}, ${i3}, ${i4}, ${i5}, ${i6}, ${i7} => ${nn(i1, i2, i3, i4, i5, i6, i7)} (expected ${y})`));
+    data.forEach(({input: [i1, i2, i3, i4, i5, i6, i7], output: y}) => {
+            // 9.05
+            // console.log(`${i1}, ${i2}, ${i3}, ${i4}, ${i5}, ${i6}, ${i7} => ${nn(i1, i2, i3, i4, i5, i6, i7)} (expected ${y})`);
+        });
 
 outputResults();
 
@@ -280,8 +282,8 @@ var oilStationsCount = document.querySelector('.oil-stations-count');
 // Контейнер для блока с формой и кнопками результатов (виден при выборе кол-ва НПС)
 var oilStationsInfo = document.querySelector('.oil-stations-info');
 
-// Блок с формой для введения данных
-var oilStationBlock = document.querySelector('.oil-station-block');
+// Контейнер для блока насосов
+var radioInputsContainer = document.querySelector('.radio-inputs-container');
 
 // Блок с кнопками для расчёта результатов
 var calculateButtonBlock = document.querySelector('.calculate-button-block');
@@ -299,7 +301,7 @@ var resultBlock = document.querySelector('.result');
 var parametersForm = document.querySelector('.oil-station-parameters');
 // console.log('parametersForm', parametersForm);
 
-// Массив input-полея формы с параметрами
+// Массив input-полей формы с параметрами
 var parametersFormInputs = parametersForm.querySelectorAll('input');
 
 // Обновляем статус кнопки "Расчитать" в зависимости от значений формы
@@ -307,8 +309,83 @@ var parametersFormInputs = parametersForm.querySelectorAll('input');
     e.addEventListener('change', disableCalculateButton)
 });
 
+var pumpSelector1 = document.createElement('div');
+pumpSelector1.className = "pump-selector-1";
+pumpSelector1.innerHTML = "<label>Количество включенных насосов на первой НПС (шт):</label>\n" +
+    "\n" +
+    "    <div><input name=\"first_nps_on\" type=\"radio\" value=\"1\" checked /> 1</div>" +
+    "\n" +
+    "    <div><input name=\"first_nps_on\" type=\"radio\" value=\"2\" checked /> 2</div>" +
+    "\n" +
+    "    <div><input name=\"first_nps_on\" type=\"radio\" value=\"3\" checked /> 3</div>" +
+    "\n" +
+    "    <div><input name=\"first_nps_on\" type=\"radio\" value=\"4\" checked /> 4</div>";
+
+var pumpSelector2 = document.createElement('div');
+pumpSelector2.className = "pump-selector-2";
+pumpSelector2.innerHTML = "<label>Количество включенных насосов на второй НПС (шт):</label>\n" +
+    "\n" +
+    "    <div><input name=\"second_nps_on\" type=\"radio\" value=\"1\" checked /> 1</div>" +
+    "\n" +
+    "    <div><input name=\"second_nps_on\" type=\"radio\" value=\"2\" checked /> 2</div>" +
+    "\n" +
+    "    <div><input name=\"second_nps_on\" type=\"radio\" value=\"3\" checked /> 3</div>" +
+    "\n" +
+    "    <div><input name=\"second_nps_on\" type=\"radio\" value=\"4\" checked /> 4</div>";
+
+var pumpSelector3 = document.createElement('div');
+pumpSelector3.className = "pump-selector-3";
+pumpSelector3.innerHTML = "<label>Количество включенных насосов на третьей НПС (шт):</label>\n" +
+    "\n" +
+    "    <div><input name=\"third_nps_on\" type=\"radio\" value=\"1\" checked /> 1</div>" +
+    "\n" +
+    "    <div><input name=\"third_nps_on\" type=\"radio\" value=\"2\" checked /> 2</div>" +
+    "\n" +
+    "    <div><input name=\"third_nps_on\" type=\"radio\" value=\"3\" checked /> 3</div>" +
+    "\n" +
+    "    <div><input name=\"third_nps_on\" type=\"radio\" value=\"4\" checked /> 4</div>";
+
+var pumpSelector4 = document.createElement('div');
+pumpSelector4.className = "pump-selector-4";
+pumpSelector4.innerHTML = "<label>Количество включенных насосов на четвертой НПС (шт):</label>\n" +
+    "\n" +
+    "    <div><input name=\"fourth_nps_on\" type=\"radio\" value=\"1\" checked /> 1</div>" +
+    "\n" +
+    "    <div><input name=\"fourth_nps_on\" type=\"radio\" value=\"2\" checked /> 2</div>" +
+    "\n" +
+    "    <div><input name=\"fourth_nps_on\" type=\"radio\" value=\"3\" checked /> 3</div>" +
+    "\n" +
+    "    <div><input name=\"fourth_nps_on\" type=\"radio\" value=\"4\" checked /> 4</div>";
+
 oilStationsCount.addEventListener('change', function () {
     if (+oilStationsCount.value > 0) {
+
+        for (var i = 0; i < +oilStationsCount.value; i++) {
+            if (i === 0) {
+                clearRadioInputsContainer();
+                radioInputsContainer.appendChild(pumpSelector1);
+                parametersFormInputs = parametersForm.querySelectorAll('input');
+            } else if (i === 1) {
+                clearRadioInputsContainer();
+                radioInputsContainer.appendChild(pumpSelector1);
+                radioInputsContainer.appendChild(pumpSelector2);
+                parametersFormInputs = parametersForm.querySelectorAll('input');
+            } else if (i === 2) {
+                clearRadioInputsContainer();
+                radioInputsContainer.appendChild(pumpSelector1);
+                radioInputsContainer.appendChild(pumpSelector2);
+                radioInputsContainer.appendChild(pumpSelector3);
+                parametersFormInputs = parametersForm.querySelectorAll('input');
+            } else if (i === 3) {
+                clearRadioInputsContainer();
+                radioInputsContainer.appendChild(pumpSelector1);
+                radioInputsContainer.appendChild(pumpSelector2);
+                radioInputsContainer.appendChild(pumpSelector3);
+                radioInputsContainer.appendChild(pumpSelector4);
+                parametersFormInputs = parametersForm.querySelectorAll('input');
+            }
+        }
+
         oilStationsInfo.classList.remove('hidden');
     } else {
         oilStationsInfo.classList.add('hidden');
@@ -322,6 +399,7 @@ calculateButton.addEventListener('click', function () {
     calculateButton.classList.add('hidden');
     calculateNewButton.classList.remove('hidden');
     disableParametersForm(true);
+    oilStationsCount.disabled = true;
 });
 
 // Обработчик клика по кнопке "Новый расчёт"
@@ -330,7 +408,15 @@ calculateNewButton.addEventListener('click', function () {
     calculateNewButton.classList.add('hidden');
     resultBlock.classList.add('hidden');
     disableParametersForm(false);
+    oilStationsCount.disabled = false;
 });
+
+// Удаляем все дочерние элементы у radioInputsContainer
+function clearRadioInputsContainer() {
+    while (radioInputsContainer.firstChild) {
+        radioInputsContainer.removeChild(radioInputsContainer.firstChild);
+    }
+}
 
 // Деактивируем кнопку расчёта, если хотя бы одно поле не заполнено
 function disableCalculateButton() {

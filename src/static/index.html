@@ -26,45 +26,11 @@
         </select>
     </div>
 
-    <div class="oil-stations-info">
-        <div class="oil-station-block hidden">
+    <div class="oil-stations-info hidden">
+        <div class="oil-station-block">
             <h2>Введите рабочие характеристики участка нефтепровода:</h2>
             <div class="oil-station-parameters">
-                <div class="radio-inputs-container">
-                    <label>Количество включенных насосов на первой НПС (шт):</label>
-
-                    <div>
-                        <input name="first_nps_on" type="radio" value="1" checked /> 1
-                    </div>
-                    <div>
-                        <input name="first_nps_on" type="radio" value="2" /> 2
-                    </div>
-                    <div>
-                        <input name="first_nps_on" type="radio" value="3" /> 3
-                    </div>
-                    <div>
-                        <input name="first_nps_on" type="radio" value="4" /> 4
-                    </div>
-                </div>
-
-                <div class="radio-inputs-container">
-                    <label>Количество включенных насосов на второй НПС (шт):</label>
-
-                    <div>
-                        <input name="second_nps_on" type="radio" value="1" /> 1
-                    </div>
-                    <div>
-                        <input name="second_nps_on" type="radio" value="2" /> 2
-                    </div>
-                    <div>
-                        <input name="second_nps_on" type="radio" value="3" /> 3
-                    </div>
-                    <div>
-                        <input name="second_nps_on" type="radio" value="4" /> 4
-                    </div>
-
-                </div>
-
+                <div class="radio-inputs-container"></div>
                 <div>
                     <label>Подача Q (м3/ч):</label>
                     <input type="number" min="2000" value="" placeholder="Например, 2500" />
@@ -93,7 +59,7 @@
             </div>
         </div>
 
-        <div class="calculate-button-block hidden">
+        <div class="calculate-button-block">
             <div class="button-container">
                 <button class="calculate-button">
                     Расчитать

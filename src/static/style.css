@@ -76,11 +76,15 @@ div.oil-station-parameters div label {
 }
 
 div.oil-station-parameters div.radio-inputs-container {
+    flex-direction: column;
+}
+
+div.oil-station-parameters div.radio-inputs-container div {
     display: flex;
     flex-direction: row;
 }
 
-div.oil-station-parameters div.radio-inputs-container div {
+div.oil-station-parameters div.radio-inputs-container div div {
     width: 60px;
     line-height: 32px;
 }
