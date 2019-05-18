@@ -6,7 +6,7 @@
     "dev": "WEBPACK_ENV=dev webpack-dev-server",
     "start": "http-server --port ${PORT:-8080} build",
     "prestart": "npm run build",
-    "build": "mkdir build && webpack -p && ncp src/static/ build/"
+    "build": "rm -rf build && mkdir build && webpack -p && ncp src/static/ build/"
   },
   "dependencies": {
     "ramda": "0.26.0",

@@ -17,7 +17,7 @@
     <div class="oil-stations-select">
         Укажите количество НПС на участке нефтепровода:
 
-        <select name="nameee" class="oil-stations-count">
+        <select name="oil-stations-count-select" class="oil-stations-count">
             <option value="0">НПС отсутствуют</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -33,27 +33,46 @@
                 <div class="radio-inputs-container"></div>
                 <div>
                     <label>Подача Q (м3/ч):</label>
-                    <input type="number" min="2000" value="" placeholder="Например, 2500" />
+                    <input class="param-supply"
+                           type="number"
+                           min="2000"
+                           value=""
+                           placeholder="Например, 2500" />
                 </div>
 
                 <div>
                     <label>Напор (м/100):</label>
-                    <input type="number" min="200" value=""  placeholder="Например, 230" />
+                    <input class="param-pressure"
+                           type="number"
+                           min="200" value=""
+                           placeholder="Например, 230" />
                 </div>
 
                 <div>
                     <label>КПД (%):</label>
-                    <input type="number" min="70" max="100" placeholder="Например, 85" />
+                    <input class="param-efficiency"
+                           type="number"
+                           min="70"
+                           max="100"
+                           placeholder="Например, 85" />
                 </div>
 
                 <div>
                     <label>n (об/мин):</label>
-                    <input type="number" min="2000" placeholder="Например, 3000" />
+                    <input class="param-rpm"
+                           type="number"
+                           min="2000"
+                           max="4000"
+                           placeholder="Например, 3000" />
                 </div>
 
                 <div>
                     <label>Диаметр трубопровода, D2 (мм):</label>
-                    <input type="number" min="300" value="" placeholder="Например, 430"  />
+                    <input class="param-diameter"
+                           type="number"
+                           min="300"
+                           max="500"
+                           placeholder="Например, 430"  />
                 </div>
 
             </div>
@@ -73,8 +92,8 @@
     </div>
 
     <div class="result hidden">
-        <h2>Прогнозируемая производительность участка: 2456 м<sup>3</sup>/час</h2>
-        <h3>Определено с вероятностью 87%</h3>
+        <h2>Прогнозируемая производительность участка: <span class="result-productivity"></span> м<sup>3</sup>/час</h2>
+        <h3>Определено с вероятностью <span class="result-probability"></span>%</h3>
     </div>
 
 </div>
